@@ -1,0 +1,2072 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"vide",
+				"videos_set"
+			],
+			[
+				"Fi",
+				"FixedTaskItem"
+			],
+			[
+				"p",
+				"pair"
+			],
+			[
+				"cu",
+				"currentVideo"
+			],
+			[
+				"la",
+				"label2"
+			],
+			[
+				"Fix",
+				"FixedTask"
+			],
+			[
+				"re",
+				"render"
+			],
+			[
+				"fixed",
+				"fixedtask"
+			],
+			[
+				"Task",
+				"FixedTaskItem"
+			],
+			[
+				"get",
+				"get_conflicts"
+			],
+			[
+				"se",
+				"second_users"
+			],
+			[
+				"user",
+				"user"
+			],
+			[
+				"label",
+				"label"
+			],
+			[
+				"Ta",
+				"Task"
+			],
+			[
+				"u",
+				"username"
+			],
+			[
+				"use",
+				"username"
+			],
+			[
+				"fti",
+				"fti2"
+			],
+			[
+				"Fixe",
+				"FixedTaskItem"
+			],
+			[
+				"fi",
+				"fixedtask"
+			],
+			[
+				"cur",
+				"currentVideo"
+			],
+			[
+				"curr",
+				"current"
+			],
+			[
+				"un",
+				"unmarked_labels"
+			],
+			[
+				"c",
+				"choice"
+			],
+			[
+				"ta",
+				"task"
+			],
+			[
+				"add",
+				"add_video"
+			],
+			[
+				"vi",
+				"video"
+			],
+			[
+				"reco",
+				"recommended"
+			],
+			[
+				"no",
+				"nomapreduce"
+			],
+			[
+				"ad",
+				"add_video"
+			],
+			[
+				"mod",
+				"model"
+			],
+			[
+				"model",
+				"models"
+			],
+			[
+				"Re",
+				"Recommendation"
+			],
+			[
+				"th",
+				"thead	Tag"
+			],
+			[
+				"mode",
+				"model_file"
+			],
+			[
+				"file",
+				"filter_keys"
+			],
+			[
+				"url",
+				"url_keys"
+			],
+			[
+				"pro",
+				"production"
+			],
+			[
+				"ma",
+				"max_items_from_model"
+			],
+			[
+				"try",
+				"try	Try/Except"
+			],
+			[
+				"std",
+				"stdout"
+			],
+			[
+				"R",
+				"Recommendation"
+			],
+			[
+				"ty",
+				"try	Try/Except"
+			],
+			[
+				"tr",
+				"try	Try/Except"
+			],
+			[
+				"click",
+				"click_pool"
+			],
+			[
+				"pr",
+				"prodmodel"
+			],
+			[
+				"do",
+				"doanother"
+			],
+			[
+				"prev",
+				"prevurl"
+			],
+			[
+				"urls",
+				"urls_to_markup_uniq"
+			],
+			[
+				"cou",
+				"count"
+			],
+			[
+				"op",
+				"options"
+			],
+			[
+				"all",
+				"all_keys"
+			],
+			[
+				"map",
+				"mapreduce"
+			],
+			[
+				"clo",
+				"close_output"
+			],
+			[
+				"cl",
+				"close_input"
+			],
+			[
+				"in",
+				"inputs"
+			],
+			[
+				"b",
+				"bdate"
+			],
+			[
+				"date",
+				"dates"
+			],
+			[
+				"g",
+				"get_or_create"
+			],
+			[
+				"O",
+				"ObjectDoesNotExist"
+			],
+			[
+				"fo",
+				"format"
+			],
+			[
+				"rand",
+				"randVal"
+			],
+			[
+				"ha",
+				"hashvalue"
+			],
+			[
+				"inpu",
+				"inputFormat"
+			],
+			[
+				"ke",
+				"key"
+			],
+			[
+				"keys",
+				"keysFormat"
+			],
+			[
+				"de",
+				"description2list"
+			],
+			[
+				"desc",
+				"description2dict"
+			],
+			[
+				"su",
+				"substract"
+			],
+			[
+				"fil",
+				"filter_keys"
+			],
+			[
+				"ts",
+				"TSNETFILE"
+			],
+			[
+				"dc",
+				"dcg_value"
+			],
+			[
+				"dcg",
+				"dcg_values"
+			],
+			[
+				"ex",
+				"exists"
+			],
+			[
+				"htt",
+				"http"
+			],
+			[
+				"Reco",
+				"RecommenderModel"
+			],
+			[
+				"el",
+				"elif"
+			],
+			[
+				"logg",
+				"logger"
+			],
+			[
+				"La",
+				"Label"
+			],
+			[
+				"is",
+				"is404"
+			],
+			[
+				"recomm",
+				"recommended"
+			],
+			[
+				"B",
+				"BooleanField"
+			],
+			[
+				"vie",
+				"video"
+			],
+			[
+				"lo",
+				"login_required"
+			],
+			[
+				"fir",
+				"firstvideo"
+			],
+			[
+				"Reo",
+				"RecommenderModel"
+			],
+			[
+				"CU",
+				"CURRENTBATCHINDEX"
+			],
+			[
+				"ba",
+				"batches"
+			],
+			[
+				"ITE",
+				"ITERATION"
+			],
+			[
+				"ca",
+				"caps_count"
+			],
+			[
+				"isal",
+				"is_all_caps"
+			],
+			[
+				"te",
+				"text_punct_count"
+			],
+			[
+				"cap",
+				"caps_words_count"
+			],
+			[
+				"im",
+				"images_count"
+			],
+			[
+				"tex",
+				"text_length_symbols"
+			],
+			[
+				"norma",
+				"normalize"
+			],
+			[
+				"_",
+				"_normalize"
+			],
+			[
+				"normal",
+				"normvalue"
+			],
+			[
+				"nor",
+				"normvalue"
+			],
+			[
+				"me",
+				"merge_post_likes"
+			],
+			[
+				"pos",
+				"post_id"
+			],
+			[
+				"TSNET",
+				"TSNETFILE"
+			],
+			[
+				"pa",
+				"PARAMS"
+			],
+			[
+				"ho",
+				"HOSTS"
+			],
+			[
+				"TH",
+				"THREADS"
+			],
+			[
+				"RE",
+				"REMOTESCRIPTTITLE"
+			],
+			[
+				"P",
+				"PARAMS"
+			],
+			[
+				"st",
+				"startswith"
+			],
+			[
+				"on",
+				"oneclickperuser"
+			],
+			[
+				"POO",
+				"POOLTYPE"
+			],
+			[
+				"PO",
+				"POOLNAME"
+			],
+			[
+				"long",
+				"long_vs_short"
+			],
+			[
+				"MODEL",
+				"MODELTITLE"
+			],
+			[
+				"FA",
+				"FACTOR_COUNT"
+			],
+			[
+				"SKIP",
+				"SKIPDEPLOY"
+			],
+			[
+				"ran",
+				"random_pairs"
+			],
+			[
+				"start",
+				"startswith"
+			],
+			[
+				"for",
+				"for	For Loop"
+			],
+			[
+				"T",
+				"TMPDIR"
+			],
+			[
+				"joi",
+				"joined_all"
+			],
+			[
+				"jo",
+				"joined_prev"
+			],
+			[
+				"source",
+				"SOURCE"
+			],
+			[
+				"vals",
+				"valsSecond"
+			],
+			[
+				"pre",
+				"process_data"
+			],
+			[
+				"skip",
+				"SKIPHASHING"
+			],
+			[
+				"SKI",
+				"SKIPMEDIANS"
+			],
+			[
+				"set",
+				"SETSIZE"
+			],
+			[
+				"posi",
+				"positions_sum"
+			],
+			[
+				"DAT",
+				"DATEEND"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "markup/management/commands/make_fixed_task.py",
+			"settings":
+			{
+				"buffer_size": 1872,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/views.py",
+			"settings":
+			{
+				"buffer_size": 4814,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/fixedtask_views.py",
+			"settings":
+			{
+				"buffer_size": 4215,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/templates/markup/login.html",
+			"settings":
+			{
+				"buffer_size": 1767,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/templates/markup/success.html",
+			"settings":
+			{
+				"buffer_size": 144,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/util.py",
+			"settings":
+			{
+				"buffer_size": 5344,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "//booster/pavvloff/bin/prepare_video.sh",
+			"settings":
+			{
+				"buffer_size": 7664,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/management/commands/update_titles.py",
+			"settings":
+			{
+				"buffer_size": 2025,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/extract_video_titles.py",
+			"settings":
+			{
+				"buffer_size": 1112,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/urls.py",
+			"settings":
+			{
+				"buffer_size": 916,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/templates/markup/tasks.html",
+			"settings":
+			{
+				"buffer_size": 900,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/management/commands/calculate_dcg.py",
+			"settings":
+			{
+				"buffer_size": 4098,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/management/commands/calculate_dcg_weights.py",
+			"settings":
+			{
+				"buffer_size": 2382,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/management/commands/dump_labels.py",
+			"settings":
+			{
+				"buffer_size": 698,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/management/commands/get_recommendations.py",
+			"settings":
+			{
+				"buffer_size": 886,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/management/commands/make_task.py",
+			"settings":
+			{
+				"buffer_size": 6266,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/management/commands/prepare_data.py",
+			"settings":
+			{
+				"buffer_size": 2882,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/management/commands/update_titles_from_search.py",
+			"settings":
+			{
+				"buffer_size": 902,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/templates/markup/markup.html",
+			"settings":
+			{
+				"buffer_size": 3196,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "markup/templates/markup/default.html",
+			"settings":
+			{
+				"buffer_size": 1467,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"Li",
+				"Line Endings Unify"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"line",
+				"Line Endings Unify"
+			],
+			[
+				"line end",
+				"Line Endings Unify"
+			],
+			[
+				"line ",
+				"Line Endings Unify"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"upp",
+				"Convert Case: Upper Case"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 261.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"//booster/pavvloff/bin/mr.py",
+		"/C/Users/pavvloff/dev/markup/markup/models.py",
+		"/C/Users/pavvloff/dev/markup/markup/util.py",
+		"/C/Users/pavvloff/dev/markup/markup/fixedtask_views.py",
+		"/C/Users/pavvloff/dev/markup/markup/views.py",
+		"/C/Users/pavvloff/dev/markup/markup/management/commands/make_fixed_task.py",
+		"/C/Users/pavvloff/dev/markup/markup/management/commands/make_task.py",
+		"/C/Users/pavvloff/dev/markup/markup/templates/markup/markup.html",
+		"/C/Users/pavvloff/dev/markup/markup/templates/markup/tasks.html",
+		"/C/Users/pavvloff/dev/markup/markup/templates/markup/success.html",
+		"/C/Users/pavvloff/dev/markup/markup/templates/markup/fixedtask_statistics.html",
+		"/C/Users/pavvloff/dev/markup/markup/urls.py",
+		"/C/Users/pavvloff/dev/markup/markup/templates/markup/task_statistics.html",
+		"/C/Users/pavvloff/dev/markup/markup/templates/markup/conflicts.html",
+		"//booster/pavvloff/bin/filter_keys.py",
+		"/C/Users/pavvloff/dev/markup/markup/extract_video_titles.py",
+		"/C/Users/pavvloff/dev/markup/markup/templates/markup/video.html",
+		"/C/Users/pavvloff/dev/markup/markup/management/commands/fix_urls.py",
+		"/C/Users/pavvloff/dev/markup/markup/management/commands/calculate_dcg_weights.py",
+		"/C/Users/pavvloff/dev/markup/markup/management/commands/get_statistics.py",
+		"/C/Users/pavvloff/dev/markup/markup/management/commands/prepare_data.py",
+		"/C/Users/pavvloff/dev/markup/markup/management/commands/update_titles.py",
+		"/C/Users/pavvloff/dev/markup/markup/management/commands/update_titles_from_search.py",
+		"/C/Users/pavvloff/dev/markup/markup/management/commands/calculate_dcg.py",
+		"/C/Users/pavvloff/dev/markup/markup/management/commands/get_recommendations.py",
+		"//booster/pavvloff/bin/add_date.py",
+		"/C/Users/pavvloff/dev/markup/markup/templates/markup/default.html",
+		"/C/Users/pavvloff/dev/markup/VideoMarkup/settings.py",
+		"/C/Users/pavvloff/dev/markup/markup/management/commands/upload_titles.py",
+		"/C/Users/pavvloff/dev/markup/markup/tests.py",
+		"//booster/pavvloff/bin/extract_video_titles.py",
+		"/C/Users/pavvloff/dev/markup/markup/templates/markup/login.html",
+		"/C/Users/pavvloff/AppData/Roaming/Sublime Text 2/Packages/Line Endings Unify/LineEndingsUnify.py",
+		"/C/Users/pavvloff/dev/markup/manage.py",
+		"//booster/pavvloff/mr_tables_to_remove",
+		"//booster/pavvloff/bin/tsnet-cluster.sh",
+		"/C/Users/pavvloff/dev/markup/markup/management/commands/dump_labels.py",
+		"/C/Users/pavvloff/dev/markup/markup/management/commands/upload_labels.py",
+		"/C/Users/pavvloff/dev/markup/markup/admin.py",
+		"//booster/pavvloff/bin/sample_pool.py",
+		"//booster/pavvloff/bin/transform_pool.py",
+		"//booster/pavvloff/bin/pairs_from_graph.sh",
+		"//booster/pavvloff/bin/prepare_video.sh",
+		"/C/Users/pavvloff/dev/web/PersonalReader/reader2/views.py",
+		"//booster/pavvloff/bin/make_video_recommendations.sh",
+		"//booster/pavvloff/bin/tsnet-cluster-remote.sh",
+		"//booster/pavvloff/bin/eval_mr_2.sh",
+		"/C/Users/pavvloff/dev/markup/markup/management/commands/dump_videos.py",
+		"/C/Users/pavvloff/Downloads/Video Markup.htm",
+		"//booster/pavvloff/markup/video-markup.sublime-project",
+		"/C/Users/pavvloff/dev/VideoMarkup/markup/views.py",
+		"/C/Users/pavvloff/dev/VideoMarkup/video_markup.sublime-project",
+		"/C/Users/pavvloff/dev/VideoMarkup/video_markup.sublime-workspace",
+		"/C/Users/pavvloff/Downloads/1411434-2014-02-03-15-04.serp",
+		"//booster/pavvloff/sh2014/sh2014features.py",
+		"//booster/pavvloff/sh2014/sh2014_pool.py",
+		"/C/Users/pavvloff/Downloads/v19",
+		"/C/Users/pavvloff/dev/web/PersonalReader/reader/models.py",
+		"/C/Users/pavvloff/dev/VideoMarkup/VideoMarkup/settings.py",
+		"/C/Users/pavvloff/dev/web/PersonalReader/reader2/models.py",
+		"/C/Users/pavvloff/dev/VideoMarkup/markup/urls.py",
+		"/C/Users/pavvloff/dev/VideoMarkup/markup/models.py",
+		"/C/Users/pavvloff/dev/VideoMarkup/plan.txt",
+		"/C/Users/pavvloff/dev/web/PersonalReader/PersonalReader/settings.py",
+		"/C/Users/pavvloff/Documents/дома отдыха.txt",
+		"/C/Users/pavvloff/Documents/коттеджи.txt",
+		"//booster/pavvloff/bin/image_queries.sh",
+		"//booster/pavvloff/bin/select_topn_idf_recommendations.py",
+		"//booster/pavvloff/bin/top_recommendations.sh",
+		"//booster/pavvloff/bin/merge_recall.py",
+		"//booster/pavvloff/bin/pairs_from_graph.py",
+		"/C/Users/pavvloff/dev/web/PersonalReader/manage.py",
+		"//booster/pavvloff/bin/select_topn_recommendations.py",
+		"//booster/pavvloff/bin/eval_mr.sh",
+		"/C/Users/pavvloff/dev/CompactLDA/CompactLDA.cpp",
+		"/C/Users/pavvloff/dev/CompactLDA/CompactLDA.h",
+		"//booster/pavvloff/lda/Makefile",
+		"//booster/pavvloff/lda/Vocabulary.h",
+		"//booster/pavvloff/lda/LDAModel.h",
+		"//booster/pavvloff/lda/CompactLDA.cpp",
+		"//booster/pavvloff/lda/prepare_texts.py",
+		"//booster/pavvloff/bin/random_pairs.py",
+		"//booster/pavvloff/.ssh/id_rsa.pub",
+		"//booster/pavvloff/.ssh/id_rsa",
+		"//booster/pavvloff/bin/extract_video_attributes.py",
+		"//booster/pavvloff/bin/recommendation_pool.py",
+		"//booster/pavvloff/bin/recommendaton_pool.py",
+		"//booster/pavvloff/tmp",
+		"//booster/pavvloff/relevance/relevance.fixed.fd",
+		"//booster/pavvloff/relevance/turkey/relevance.fd",
+		"//booster/pavvloff/video/eval/full_20140129/markup.urls",
+		"//booster/pavvloff/bin/join_query_data.py",
+		"//booster/pavvloff/bin/video_markup.sh",
+		"//booster/pavvloff/bin/prepare_click_pools.sh",
+		"//booster/pavvloff/bin/one_click_per_user.py",
+		"//booster/pavvloff/bin/join_video_attributes.py",
+		"/C/Users/pavvloff/AppData/Local/Temp/_tc/pavvloff212.txt",
+		"//booster/pavvloff/video/eval/full_20140129/tmp",
+		"/C/Users/pavvloff/Documents/Идеи/factory_game.txt",
+		"//booster/pavvloff/bin/prepare_music.sh",
+		"//booster/pavvloff/bin/deploy_scripts.sh",
+		"/C/Users/pavvloff/Documents/Кликовая добавка/personalization_factors.txt",
+		"/C/Users/pavvloff/Documents/Кликовая добавка/unused_removed_unimplemented_factors.28112013.txt",
+		"//booster/pavvloff/bin/sessions2pairs.py",
+		"//booster/pavvloff/video/eval/fullrandp3/markup.tsv",
+		"//booster/pavvloff/bin/generate_video_views_pairs.py",
+		"//booster/pavvloff/video/eval/randpop100randp2/randp2.score.markup",
+		"//booster/pavvloff/bin/simhashing.sh",
+		"/C/Users/pavvloff/Downloads/features.tsv",
+		"//booster/pavvloff/video/idf/results.markup",
+		"//booster/pavvloff/video/idf/results",
+		"/C/Users/pavvloff/Documents/Рекомендации/results",
+		"//booster/pavvloff/bin/generatesimhash.py",
+		"//booster/pavvloff/bin/preparesimhash.py",
+		"/C/Users/pavvloff/Documents/Рекомендации/video.v02.tsv",
+		"//booster/pavvloff/bin/slidingwindow.py",
+		"/C/Users/pavvloff/Documents/Рекомендации/video.v1.tsv",
+		"//booster/pavvloff/svn/pavvloff/bin/generate_video_views_pairs.py",
+		"//booster/pavvloff/svn/pavvloff/bin/positions_sum.py",
+		"//booster/pavvloff/svn/pavvloff/bin/generate_multipos_pool.py",
+		"//booster/pavvloff/svn/pavvloff/bin/simhashing.sh",
+		"//booster/pavvloff/bin/positions_sum.py",
+		"//booster/pavvloff/bin/idf.sh",
+		"//booster/pavvloff/bin/posidf.py",
+		"//booster/pavvloff/svn/pavvloff/bin/eval_mr.sh",
+		"//booster/pavvloff/svn/pavvloff/bin/select_popular_urls.py",
+		"//booster/pavvloff/svn/pavvloff/bin/bithash.py",
+		"//booster/pavvloff/svn/pavvloff/bin/transform_pool.py"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"<open folders>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"Recommendation",
+			"Reco",
+			"807",
+			"	clickadd	",
+			"Label",
+			"task",
+			"http://",
+			"add_video",
+			"logger",
+			"TaskItem",
+			"unicode",
+			"ideal",
+			"logger",
+			"from",
+			"order",
+			"    ",
+			"	",
+			"redwoo",
+			"	",
+			"current_videos",
+			"mrk",
+			"markup",
+			"mrk",
+			"markup",
+			"markup =",
+			"markup=",
+			"mrk",
+			"Markup",
+			"Label.objects",
+			"Recommendation.objects",
+			"cv in get_current_videos(markup)",
+			"Recommendation.objects",
+			"crea",
+			"cre",
+			"iscurrent",
+			"	",
+			"py",
+			"logg",
+			"LOGG",
+			"label",
+			"labeled",
+			"Label",
+			"labeled",
+			"value",
+			"	",
+			"FACRO",
+			"~/bin",
+			"  ",
+			":",
+			"BATCHSIZE",
+			"iter",
+			"iter2",
+			"readD",
+			"	",
+			"TITLE",
+			"RUN",
+			"	",
+			"attr",
+			"	",
+			"strip",
+			"/home/gadelshini",
+			"	",
+			"pairs_from_graph",
+			"	",
+			"$DESTINATION.pool",
+			"pool",
+			"prevurl",
+			"cururl",
+			"	",
+			"|",
+			"	",
+			" -I ",
+			":",
+			"	",
+			"ignore",
+			" -I ",
+			"-I ",
+			"strip",
+			"long_vs_all",
+			"	",
+			"clickpool.fd",
+			"nofiltering",
+			"	",
+			"MRSA",
+			"POOLNAME",
+			"model",
+			"\\t.*",
+			"!! |",
+			"| !!",
+			"===",
+			"tmp",
+			"\\",
+			"tee",
+			" >> ",
+			"URL",
+			"URLLIS",
+			"    \"",
+			";;",
+			"elif [ \"$1\" == ",
+			"THRE",
+			"	.*",
+			"dnorm",
+			".v1",
+			"MR_UNIQ",
+			"-server $MRSERVER",
+			"rearrange/click_pool/video/$POOLNAME",
+			"BITS",
+			"http://www.newstube.ru/media/smertel",
+			"positions",
+			"mapreduce-dev",
+			"$DESTINATION",
+			"$MRUSER",
+			"SKIPHASHING",
+			"$MR -server $MRSERVER",
+			"MR_USER=$MRUSER ",
+			"formatter",
+			"redwood:8013",
+			"target",
+			"GetPrevious",
+			"sys",
+			"-n",
+			"local",
+			"m",
+			"b",
+			"done",
+			"12345",
+			"87908",
+			"EQUA"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\\t",
+			"    ",
+			"Task",
+			"",
+			"$DESTINATION",
+			"FILE",
+			"BATCH",
+			"\\t",
+			"{\\n\\t",
+			",\\n",
+			":",
+			"\\t$1",
+			" ",
+			"\\t$1",
+			" $1",
+			",\\n",
+			",\\t",
+			"\\t",
+			" ",
+			"unicode",
+			";",
+			"\\t",
+			"0",
+			"1",
+			"0",
+			"1",
+			",",
+			"\\t",
+			",",
+			"\\t",
+			",\\n",
+			"\\t",
+			",",
+			"\\t"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 18,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "markup/management/commands/make_fixed_task.py",
+					"settings":
+					{
+						"buffer_size": 1872,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1700,
+								1700
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "markup/views.py",
+					"settings":
+					{
+						"buffer_size": 4814,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4814,
+								4814
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2151.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "markup/fixedtask_views.py",
+					"settings":
+					{
+						"buffer_size": 4215,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								758,
+								794
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 72.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "markup/templates/markup/login.html",
+					"settings":
+					{
+						"buffer_size": 1767,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1480,
+								1480
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 35.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "markup/templates/markup/success.html",
+					"settings":
+					{
+						"buffer_size": 144,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								97,
+								97
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "markup/util.py",
+					"settings":
+					{
+						"buffer_size": 5344,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5344,
+								5344
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2497.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "//booster/pavvloff/bin/prepare_video.sh",
+					"settings":
+					{
+						"buffer_size": 7664,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2548,
+								2537
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 509.0,
+						"translation.y": 1374.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "markup/management/commands/update_titles.py",
+					"settings":
+					{
+						"buffer_size": 2025,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2025,
+								2025
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 447.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "markup/extract_video_titles.py",
+					"settings":
+					{
+						"buffer_size": 1112,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								954,
+								905
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "markup/urls.py",
+					"settings":
+					{
+						"buffer_size": 916,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								913,
+								913
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "markup/templates/markup/tasks.html",
+					"settings":
+					{
+						"buffer_size": 900,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								535,
+								535
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "markup/management/commands/calculate_dcg.py",
+					"settings":
+					{
+						"buffer_size": 4098,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								360,
+								412
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 506.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "markup/management/commands/calculate_dcg_weights.py",
+					"settings":
+					{
+						"buffer_size": 2382,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1061,
+								1061
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 86.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "markup/management/commands/dump_labels.py",
+					"settings":
+					{
+						"buffer_size": 698,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "markup/management/commands/get_recommendations.py",
+					"settings":
+					{
+						"buffer_size": 886,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "markup/management/commands/make_task.py",
+					"settings":
+					{
+						"buffer_size": 6266,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								145,
+								159
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2059.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "markup/management/commands/prepare_data.py",
+					"settings":
+					{
+						"buffer_size": 2882,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1585,
+								1585
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 824.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "markup/management/commands/update_titles_from_search.py",
+					"settings":
+					{
+						"buffer_size": 902,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 98.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "markup/templates/markup/markup.html",
+					"settings":
+					{
+						"buffer_size": 3196,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3134,
+								3134
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1391.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "markup/templates/markup/default.html",
+					"settings":
+					{
+						"buffer_size": 1467,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								735,
+								735
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"tasks",
+				"markup/templates/markup/tasks.html"
+			],
+			[
+				"mark",
+				"markup/templates/markup/markup.html"
+			],
+			[
+				"uti",
+				"markup/util.py"
+			],
+			[
+				"prepa",
+				"markup/management/commands/prepare_data.py"
+			],
+			[
+				"",
+				"markup/fixedtask_views.py"
+			],
+			[
+				"mode",
+				"markup/models.py"
+			],
+			[
+				"view",
+				"markup/views.py"
+			],
+			[
+				"model",
+				"markup/models.py"
+			],
+			[
+				"ex",
+				"markup/extract_video_titles.py"
+			],
+			[
+				"managet",
+				"markup/management/commands/update_titles.py"
+			],
+			[
+				"u",
+				"markup/util.py"
+			],
+			[
+				"succ",
+				"markup/templates/markup/success.html"
+			],
+			[
+				"login",
+				"markup/templates/markup/login.html"
+			],
+			[
+				"make",
+				"markup/management/commands/make_fixed_task.py"
+			],
+			[
+				"fi",
+				"markup/fixedtask_views.py"
+			],
+			[
+				"views",
+				"markup/fixedtask_views.py"
+			],
+			[
+				"url",
+				"markup/urls.py"
+			],
+			[
+				"vi",
+				"markup/views.py"
+			],
+			[
+				"mak",
+				"markup/management/commands/make_fixed_task.py"
+			],
+			[
+				"fix",
+				"markup/templates/markup/fixedtask_statistics.html"
+			],
+			[
+				"mo",
+				"markup/models.py"
+			],
+			[
+				"html",
+				"markup/templates/markup/fixedtask_statistics.html"
+			],
+			[
+				"fie",
+				"markup/templates/markup/fixedtask_statistics.html"
+			],
+			[
+				"ma",
+				"markup/templates/markup/markup.html"
+			],
+			[
+				"video",
+				"markup/templates/markup/video.html"
+			],
+			[
+				"cal",
+				"markup/management/commands/calculate_dcg_weights.py"
+			],
+			[
+				"util",
+				"markup/util.py"
+			],
+			[
+				"ui",
+				"markup/util.py"
+			],
+			[
+				"upda",
+				"markup/management/commands/update_titles.py"
+			],
+			[
+				"moel",
+				"markup/models.py"
+			],
+			[
+				"ext",
+				"markup/extract_video_titles.py"
+			],
+			[
+				"update",
+				"markup/management/commands/update_titles.py"
+			],
+			[
+				"up",
+				"markup/management/commands/update_titles.py"
+			],
+			[
+				"sta",
+				"markup/templates/markup/task_statistics.html"
+			],
+			[
+				"get_",
+				"markup/management/commands/get_statistics.py"
+			],
+			[
+				"mae",
+				"markup/management/commands/make_task.py"
+			],
+			[
+				"get",
+				"markup/management/commands/get_recommendations.py"
+			],
+			[
+				"ca",
+				"markup/management/commands/calculate_dcg.py"
+			],
+			[
+				"pre",
+				"markup/management/commands/prepare_data.py"
+			],
+			[
+				"de",
+				"markup/templates/markup/default.html"
+			],
+			[
+				"moe",
+				"markup/models.py"
+			],
+			[
+				"calc",
+				"markup/management/commands/calculate_dcg.py"
+			],
+			[
+				"p",
+				"markup/management/commands/prepare_data.py"
+			],
+			[
+				"se",
+				"VideoMarkup/settings.py"
+			],
+			[
+				"dump",
+				"markup/management/commands/dump_videos.py"
+			],
+			[
+				"du",
+				"markup/management/commands/dump_labels.py"
+			],
+			[
+				"mde",
+				"markup/models.py"
+			],
+			[
+				"tsnet",
+				"//booster/pavvloff/bin/tsnet-cluster.sh"
+			],
+			[
+				"eva",
+				"//booster/pavvloff/bin/eval_mr_2.sh"
+			],
+			[
+				"mr_",
+				"//booster/pavvloff/bin/eval_mr_2.sh"
+			],
+			[
+				"sele",
+				"//booster/pavvloff/bin/select_topn_recommendations.py"
+			],
+			[
+				"eval",
+				"//booster/pavvloff/bin/eval_mr.sh"
+			],
+			[
+				"tsne",
+				"//booster/pavvloff/bin/tsnet-cluster-remote.sh"
+			],
+			[
+				"cl",
+				"//booster/pavvloff/bin/tsnet-cluster.sh"
+			],
+			[
+				"e",
+				"//booster/pavvloff/bin/eval_mr.sh"
+			],
+			[
+				"ev",
+				"//booster/pavvloff/bin/eval_mr.sh"
+			],
+			[
+				"mr",
+				"//booster/pavvloff/mr_tables_to_remove"
+			],
+			[
+				"pe",
+				"//booster/pavvloff/bin/prepare_video.sh"
+			],
+			[
+				"tr",
+				"//booster/pavvloff/bin/transform_pool.py"
+			],
+			[
+				"tra",
+				"//booster/pavvloff/bin/transform_pool.py"
+			],
+			[
+				"sim",
+				"//booster/pavvloff/svn/pavvloff/bin/simhashing.sh"
+			],
+			[
+				"po",
+				"//booster/pavvloff/bin/positions_sum.py"
+			],
+			[
+				"che",
+				"//booster/pavvloff/video/check_batch.sh"
+			],
+			[
+				"shu",
+				"//booster/pavvloff/bin/shufflehash.py"
+			],
+			[
+				"gene",
+				"//booster/pavvloff/bin/generatesimhash.py"
+			],
+			[
+				"ge",
+				"//booster/pavvloff/bin/generatesimhash.py"
+			],
+			[
+				"shuff",
+				"//booster/pavvloff/bin/shufflehash.py"
+			],
+			[
+				"ch",
+				"//booster/pavvloff/video/check_all_pairs.sh"
+			],
+			[
+				"ra",
+				"//booster/pavvloff/bin/random_pairs.py"
+			],
+			[
+				"ran",
+				"//booster/pavvloff/bin/random_pairs.py"
+			],
+			[
+				"prep",
+				"//booster/pavvloff/video/prepare_video.sh"
+			],
+			[
+				"sle",
+				"//booster/pavvloff/bin/select_topn_recommendations.py"
+			],
+			[
+				"prepare",
+				"//booster/pavvloff/video/prepare_video.sh"
+			],
+			[
+				"prepar",
+				"//booster/pavvloff/video/prepare_video.sh"
+			],
+			[
+				"joi",
+				"//booster/pavvloff/bin/join_video_attributes.py"
+			],
+			[
+				"pai",
+				"//booster/pavvloff/bin/select_candidates_from_pairs.py"
+			],
+			[
+				"jo",
+				"//booster/pavvloff/bin/join_video_attributes.py"
+			],
+			[
+				"sess",
+				"//booster/pavvloff/bin/sessions2pairs.py"
+			],
+			[
+				"ses",
+				"//booster/pavvloff/bin/sessions2pairs.py"
+			],
+			[
+				"user",
+				"//booster/pavvloff/bin/user_activity_histogram.py"
+			],
+			[
+				"matri",
+				"//booster/pavvloff/bin/matrixnet.py"
+			],
+			[
+				"mat",
+				"//booster/pavvloff/bin/matrixnet.py"
+			],
+			[
+				"impl",
+				"//booster/pavvloff/bin/implicit_data_model.py"
+			],
+			[
+				"im",
+				"//booster/pavvloff/bin/implicit_data_model.py"
+			],
+			[
+				"cell",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/cell_impl.py"
+			],
+			[
+				"cell_v",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/level_viewer.py"
+			],
+			[
+				"cll",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/cell_impl.py"
+			],
+			[
+				"weig",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/weighted_list.py"
+			],
+			[
+				"cell_vi",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/level_viewer.py"
+			],
+			[
+				"we",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/weighted_list.py"
+			],
+			[
+				"ce",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/cell.py"
+			],
+			[
+				"coor",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/coordinates.py"
+			],
+			[
+				"te",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/test.py"
+			],
+			[
+				"cell_",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/cell_impl.py"
+			],
+			[
+				"dun",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/dungeon.py"
+			],
+			[
+				"tes",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/test.py"
+			],
+			[
+				"wei",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/weighted_list.py"
+			],
+			[
+				"coo",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/coordinates.py"
+			],
+			[
+				"duge",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/dungeon.py"
+			],
+			[
+				"d",
+				"/C/Users/pavvloff/dev/RamboLevelGenerator/dungeon.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 197.0,
+	"status_bar_visible": true
+}

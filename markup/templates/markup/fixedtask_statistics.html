@@ -1,0 +1,33 @@
+{% extends "markup/default.html" %}
+
+{% block content %}
+<div class="container-fluid">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>
+        </td>
+        {% for first_user in users %}
+        <td>
+          {{ first_user.username }}
+        </td>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for first_user in users %}
+      <tr>
+        <td>
+          {{ first_user.username }}
+        </td>
+        {% for second_user in first_user.second_users %}
+        <td>
+          <a href="conflicts?user1={{ first_user.username }}&user2={{ second_user.username }}&fixedtask={{ fixedtask.pk }}">{{ second_user.conflicts }}/{{ second_user.total }}</a>
+        </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

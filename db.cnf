@@ -1,0 +1,4 @@
+[client]
+database = VideoMarkup
+user = webserver
+default-character-set = utf8

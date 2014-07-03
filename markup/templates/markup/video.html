@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-md-10">
+    <h4><a href="{{ video.url }}" target="_blank">{% if video.title|length > 0 %} {{ video.title }} {% else %} {{ video.url|truncatechars:30 }} {% endif %}</a></h4>
+  </div>
+  <div class="col-md-2">
+    <button id="btn404_{{ video.pk }}" type="button" class="btn btn-block btn-default" onclick="label404({{ video.pk }})">404</button>
+  </div>
+</div>
+<iframe src="{{ video.embed }}" width="100%" height="{{ height }}" frameborder="0" scrolling="no" allowfullscreen="1"></iframe>

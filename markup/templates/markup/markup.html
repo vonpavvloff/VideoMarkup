@@ -1,0 +1,119 @@
+{% extends "markup/default.html" %}
+
+{% block content %}
+<div class="container theme-showcase">
+  <div class="row">
+    <div class="col-md-12" id="video_current">
+      <a name="top"/>
+      {% with video=current height=500 %}
+        {% include "markup/video.html" %}
+      {% endwith %}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Какой ролик вы бы предпочли посмотреть после этого?</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6" id="video_first">
+      {% with video=first height=300 %}
+        {% include "markup/video.html" %}
+      {% endwith %}
+    </div>
+
+    <div class="col-md-6" id="video_second">
+      {% with video=second height=300 %}
+        {% include "markup/video.html" %}
+      {% endwith %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <p>
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="label('F')">Этот!</button>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <p>
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="label('S')">Этот!</button>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="label('B')">
+        Оба плохие</button>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      Hello, {{ user.username }}! {{ message }}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+
+var task = {{ task.pk }};
+var current = {{ current.pk }};
+var first = {{ first.pk }};
+var second = {{ second.pk }};
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+function protected_post (url,vals,callback) {
+  var csrftoken = getCookie('csrftoken');
+  $.post(url, vals + '&csrfmiddlewaretoken=' + csrftoken, callback);
+}
+
+function label(value) {
+  var data = "current=" + current + "&first=" + first + "&second=" + second + "&value=" + value + "&task=" + task;
+  console.log(data);
+  protected_post("label/",data, function (data) {
+    document.location.reload(true);
+    $(document).scrollTop(0);
+  });
+}
+
+function label404(video) {
+  if(video == current) {
+    label('c');
+  } else if (video == first) {
+    label('f');
+  } else if (video == second) {
+    label('s');
+  }
+}
+
+$(document).ready(function() {
+  $(document).scrollTop(0);
+});
+
+</script>
+
+{% endblock %}

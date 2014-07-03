@@ -1,0 +1,48 @@
+{% extends "markup/default.html" %}
+
+{% block content %}
+<div class="container-fluid">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>
+          Current video
+        </td>
+        <td>
+          First
+        </td>
+        <td>
+          Second
+        </td>
+        <td>
+          {{ user1 }}
+        </td>
+        <td>
+          {{ user2 }}
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+    {% for conflict in conflicts %}
+      <tr>
+        <td>
+          <a href="{{ conflict.label1.current.url }}" target="_blank">{{ conflict.label1.current.url }}</a>
+        </td>
+        <td>
+          <a href="{{ conflict.label1.first.url }}" target="_blank">{{ conflict.label1.first.url }}</a>
+        </td>
+        <td>
+          <a href="{{ conflict.label1.second.url }}" target="_blank">{{ conflict.label1.second.url }}</a>
+        </td>
+        <td>
+          {{ conflict.label1.value }}
+        </td>
+        <td>
+          {{ conflict.label2.value }}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

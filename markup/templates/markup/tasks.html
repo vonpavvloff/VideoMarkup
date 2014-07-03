@@ -1,0 +1,38 @@
+{% extends "markup/default.html" %}
+
+{% block content %}
+
+<div class="container">
+  <h4>Markup tasks</h4>
+  <table class="table table-hover">
+    {% for task in tasks %}
+      <tr>
+        <td>
+          <a href="/markup/markup?task={{ task.pk }}">
+            {{ task.title }}
+          </a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+  <h4>Fixed tasks</h4>
+  <table class="table table-hover">
+    {% for fixedtask in fixedtasks %}
+      <tr>
+        <td>
+          <a href="/markup/markupfixed?fixedtask={{ fixedtask.pk }}">
+            {{ fixedtask.title }}
+          </a>
+        </td>
+        <td>
+          <a href="/markup/fixedtask_statistics?fixedtask={{ fixedtask.pk }}">Conflicts statistics</a>
+        </td>
+        <td>
+          <a href="/markup/labels?fixedtask={{ fixedtask.pk }}">All labels</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% endblock %}

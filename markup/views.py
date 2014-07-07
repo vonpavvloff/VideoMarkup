@@ -63,7 +63,7 @@ def markup(request):
 	except ObjectDoesNotExist:
 		return HttpResponseRedirect('/markup/tasks/')
 
-	totallabels = Label.objects.filter(task=task,user=user,value__in=["F","S","B"]).count()
+	totallabels = Label.objects.filter(task=task,user=user,value__in=Label.ISLABELED_VALUES).count()
 
 	current,first,second = generate_random_triple(task=task,user=user)
 	pair = [first,second]
@@ -170,7 +170,7 @@ def all_labels(request):
 	if 'task' in request.GET:
 		params['task'] = Task.objects.get(pk=request.GET['task'])
 	result = StringIO()
-	for l in Label.objects.filter(**params):
+	for l in Label.objects.filter(**params).filter(value__in=Label.ISLABELED_VALUES):
 		result.write("\t".join(
 			[str(l.task.title),
 			str(l.current.url),

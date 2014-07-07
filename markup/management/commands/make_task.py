@@ -49,10 +49,10 @@ class Command(BaseCommand):
 			markup.util.skipMapReduceCommands = True
 		logger.info('Creating task and recommender models')
 		task,created = Task.objects.get_or_create(title=options["title"])
-		if not created:
-			stderr.write("This task already exists, exiting.\n")
-			logger.error("This task already exists, exiting.")
-			return
+		#if not created:
+		#	stderr.write("This task already exists, exiting.\n")
+		#	logger.error("This task already exists, exiting.")
+		#	return
 		defmodel,created = RecommenderModel.objects.get_or_create(title="default")
 		prodmodel,created = RecommenderModel.objects.get_or_create(title="production")
 
@@ -64,6 +64,7 @@ class Command(BaseCommand):
 		mapreduce(map="grep related_url= | grep type=RELATED_VIDEO_REQUEST | grep service=video.yandex | grep dom-region=ru | awk 'rand() < " + str(probability) + "' | cut -f 8 | awk '{print $0 \"\\t\"}'",
 			src=inputs,
 			dst="rearrange/click_pool/video/markup/prevurl_sample." + options['title'])
+		mapreduce(read="rearrange/click_pool/video/markup/prevurl_sample." + options['title'],stdout="pool_sample.tsv")
 		mapreduce(read="rearrange/click_pool/video/markup/prevurl_sample." + options['title'],stdout="pool_sample.tsv")
 
 		if not options["nomapreduce"]:
@@ -101,15 +102,21 @@ class Command(BaseCommand):
 		# Run click pool to collect production results
 		logger.info('Running click_pool to collect urls to markup')
 		if not options["nomapreduce"]:
-			subprocess.call(['./click_pool',
+			if 'testid' in options and options['testid'] is not None:
+				filter_expr = 'reqrelev.country == ru && test.' + str(options['testid'])
+			else:
+				filter_expr = 'reqrelev.country == ru'
+			params = ['./click_pool',
 				'-s','cedar00.search.yandex.net:8013',
 				'-b', options['bdate'],
 				'-e', options['edate'],
-				'-f','query,prevurl,url',
-				'-F','reqrelev.country == ru && test.' + str(options['testid']),
+				'-f','position,query,prevurl,url',
+				'-F', filter_expr,
 				'-d', 'rearrange/click_pool/video/markup/correct_sampling.' + options['title'],
 				'-p',str(options["dcount"] + 3),
-				'-t','video_related'],
+				'-t','video_related']
+			logger.info(str(params))
+			subprocess.call(params,
 				env={'MR_NET_TABLE':'ipv6', 'MR_USER':'clickadd'})
 		# Filter pool to leave only required keys
 		logger.info('Filtering pool')

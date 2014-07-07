@@ -38,7 +38,7 @@ class Label(models.Model):
 		('B', 'Both bad'),
 		('c', 'Current 404'),
 	)
-	ISLABELED_VALUES=['F','S','B']
+	ISLABELED_VALUES=['F','S','B','f','s','c']
 	user = models.ForeignKey(User)
 	time = models.DateTimeField(auto_now_add = True)
 	current = models.ForeignKey(Video, related_name="+")

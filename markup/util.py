@@ -155,8 +155,8 @@ def generate_random_triple(**params):
 		currentVideos = []
 		currentVideos.extend(current_videos_with_recommendations(task))
 		currentVideo = choice(currentVideos) # Select a random current video, room for optimization here
-		recs = []
-		recs.extend(currentVideo.recommendations.filter(recommended__is404 = False, task = task).distinct())
+		recs = set()
+		recs.update(currentVideo.recommendations.filter(recommended__is404 = False, task = task).distinct())
 		if len(recs) < 2:
 			continue
 		pair = sample(recs,2)

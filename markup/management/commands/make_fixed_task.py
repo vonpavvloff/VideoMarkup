@@ -15,14 +15,16 @@ import logging
 import re
 import markup.util
 logger = logging.getLogger(__name__)
+from itertools import cycle,izip
 
 
 class Command(BaseCommand):
 	option_list = BaseCommand.option_list + (
 		make_option("--title", dest="title", type="str", help="Fixed task title"),
 		make_option("--task", dest="task", type="str", help="Task title"),
-		make_option('-c', "--count", dest="count", type="int", help="Number of labels in task"),
-		make_option("--user", dest="user", type="str", action="append", help="Users that will label batch of pairs."),
+		make_option('-c', "--count", dest="count", type="int", help="Total count of non-overlapping labels in task"),
+		make_option("--user", dest="user", type="str", action="append", help="Users"),
+		make_option("--overlap", dest="overlap", type="int", help="Overlap for users")
 	)
 	def handle(self, *args, **options):
 		fixedtask,created = FixedTask.objects.get_or_create(title=options["title"])
@@ -32,9 +34,19 @@ class Command(BaseCommand):
 			return
 		task = Task.objects.get(title=options["task"])
 
-		for i in range(options["count"]):
+		usergroups = []
+		for i in range(options["overlap"]):
+			usergroups.append([])
+		shuffle(options["user"])
+		c = 0
+		for u in options["user"]:
+			usergroups[c].append(u)
+			c = (c + 1) % options["overlap"]
+
+		for t in izip(range(options["count"]),*map(cycle,usergroups)):
 			current,first,second = generate_random_triple(task=task)
-			for u in options["user"]:
+			users = t[1:]
+			for u in users:
 				try:
 					user = User.objects.get(username=u)
 				except ObjectDoesNotExist:

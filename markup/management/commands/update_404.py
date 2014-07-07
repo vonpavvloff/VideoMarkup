@@ -23,7 +23,8 @@ class Command(BaseCommand):
 		for v in Video.objects.all():
 			try:
 				t = get_video_title_from_search(v.url)
-				logger.info("Found " + v.url + " in search")
+				logger.info("Found " + v.url + " in search, updating title")
+				v.title = t
 				v.is404 = False
 				v.save()
 			except Exception, e:

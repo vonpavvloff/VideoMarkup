@@ -194,3 +194,5 @@ def user_stats(request):
 		out.write(u + "\t" + str(v) + "\n")
 	return HttpResponse(out.getvalue(),content_type="text/plain")
 
+def robots(request):
+	return HttpResponse("User-agent: *\nDisallow: /\n",content_type="text/plain")

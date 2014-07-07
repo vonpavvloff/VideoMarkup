@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, url
 
 urlpatterns = patterns('',
+	url(r'^robots.txt$','markup.views.robots', name='robots'),
 	url(r'^$','markup.views.dologin', name='dologin'),
 	url(r'^dologin/$','markup.views.dologin', name='dologin'),
 	url(r'^register/$','markup.views.register', name='register'),

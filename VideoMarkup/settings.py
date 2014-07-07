@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-STATIC_ROOT = "/home/pavvloff/markup/static/"
+STATIC_ROOT = "/home/ubuntu/markup/static/"
 
 
 # Quick-start development settings - unsuitable for production
@@ -62,7 +62,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': '/home/pavvloff/markup/db.cnf',
+            'read_default_file': '/home/ubuntu/markup/db.cnf',
         },
     }
 }
@@ -98,7 +98,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '/home/pavvloff/markup/debug.log',
+            'filename': '/home/ubuntu/markup/debug.log',
             'formatter': 'verbose',
         },
     },

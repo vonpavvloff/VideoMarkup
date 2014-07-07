@@ -130,7 +130,7 @@ def label(request):
 		raise e
 
 def dologin(request):
-	return render(request,'markup/login.html',{'next':request.GET.get('next','/markup/tasks/')}) # TODO add a backwards calculator here
+	return render(request,'markup/login.html',{'next':request.GET.get('next','/tasks/')}) # TODO add a backwards calculator here
 
 def register(request):
 	username = request.POST['username']
@@ -143,7 +143,7 @@ def register(request):
 	user = authenticate(username=username, password='pass')
 	login(request, user)
 
-	return HttpResponseRedirect(request.POST.get('next','/markup/tasks/'))
+	return HttpResponseRedirect(request.POST.get('next','/tasks/'))
 
 def statistics(request):
 	tasks = []

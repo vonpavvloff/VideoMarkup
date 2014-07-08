@@ -101,7 +101,7 @@ def markup_fixed(request):
 		return HttpResponseRedirect('/markup/tasks/')
 
 	unmarked_labels = []
-	unmarked_labels.extend(fixedtask.label.filter(user=user,value="U",current__is404=False,first__is404=False,second__is404=False))
+	unmarked_labels.extend(fixedtask.label.filter(user=user,value="U"))
 	if len(unmarked_labels) > 0:
 
 		label = choice(unmarked_labels)

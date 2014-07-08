@@ -125,33 +125,54 @@ class Command(BaseCommand):
 			src='rearrange/click_pool/video/markup/correct_sampling.' + options['title'],
 			dst='rearrange/click_pool/video/markup/urls_to_markup.' + options['title'],
 			file=["transform_pool.py","filter_keys.py","sample_pool.py","url_keys.tsv"])
-
+		
 		mapreduce(reduce='uniq',
 			subkey="",
 			src='rearrange/click_pool/video/markup/urls_to_markup.' + options['title'],
 			dst='rearrange/click_pool/video/markup/urls_to_markup_uniq.' + options['title'])
 
-		mapreduce(read='rearrange/click_pool/video/markup/urls_to_markup_uniq.' + options['title'],
+		mapreduce(read='rearrange/click_pool/video/markup/urls_to_markup.' + options['title'],
 			subkey="",
 			stdout="urls_to_markup_uniq.tsv")
 
-		def process(prevurl,position,url,query):
+		def process_batch(prevurl,position,items):
+			if prevurl is None:
+				return
+			uqmap = {}
+			for url,query in items:
+				if url == prevurl:
+					continue
+				if url not in uqmap:
+					uqmap[url] = [0,query]
+				uqmap[url][0] += 1
+			if len(uqmap) == 0:
+				logger.warn('Found no recommendations for ' + prevurl + ' on position ' + str(position))
+				return
+			url,val = sorted(uqmap.items(),key=lambda x: x[1][0],reverse=True)[0]
+			query = val[1]
 			shorturl = url
+			logger.info('Selecting recommendation that occured ' + str(val[0]) + ' times out of ' + str(len(items)))
 			if url.startswith("http://"):
 				shorturl = url[7:]
-			if shorturl in query:
-				add_recommendation(prevurl,url,1.0 / (position + 1.0),prodmodel,task)
-			else:
-				add_recommendation(prevurl,url,1.0 / (position + 1.0),defmodel,task)
+			try:
+				if shorturl in query:
+					add_recommendation(prevurl,url,1.0 / (position + 1.0),prodmodel,task)
+				else:
+					add_recommendation(prevurl,url,1.0 / (position + 1.0),defmodel,task)
+			except ObjectDoesNotExist:
+				logger.info('Failed to add recommendation ' + prevurl + ' ' + url)
 
 		logger.info('Adding recommendations')
+		curprevurl = (None,0)
+		curitems = []
 		with open('urls_to_markup_uniq.tsv') as inp:
 			for l in inp:
 				prevurl,position,url,query = l[:-1].split('\t')
 				position = int(position)
-				try:
-					logger.info('Found recommendation for prevurl: ' + prevurl + ' position: ' + str(position) + " " + url)
-					process(prevurl,position,url,query)
-				except ObjectDoesNotExist:
-					logger.info('Failed to add recommendation')
+				if (prevurl,position) != curprevurl:
+					process_batch(curprevurl[0],curprevurl[1],curitems)
+					curprevurl = (prevurl,position)
+					curitems = []
+				curitems.append((url,query))
+			process_batch(curprevurl[0],curprevurl[1],curitems)
 

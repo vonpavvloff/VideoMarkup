@@ -166,15 +166,15 @@ def generate_random_triple(**params):
 			continue
 		if pair[0].url == pair[1].url:
 			continue
-		pair.sort(key=lambda x:x.recommended.pk)
+		pair.sort(key=lambda x:x.pk)
 		if 'user' in params:
 			if Label.objects.filter(
 				current = currentVideo,
 				task = task,
-				first = pair[0].recommended,
-				second=pair[1].recommended,
+				first = pair[0],
+				second=pair[1],
 				user=params['user'],
 				value__in=Label.ISLABELED_VALUES).exists():
 				continue	
-		return currentVideo,pair[0].recommended,pair[1].recommended
+		return currentVideo,pair[0],pair[1]
 	raise ObjectDoesNotExist

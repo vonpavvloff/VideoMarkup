@@ -45,6 +45,9 @@ class Command(BaseCommand):
 
 		for t in izip(range(options["count"]),*map(cycle,usergroups)):
 			current,first,second = generate_random_triple(task=task)
+			while FixedTaskItem.objects.filter(task=fixedtask,label__current=current,label__first=first,label__second=second).exists():
+				logger.info("Generated duplicate triple, retry...")
+				current,first,second = generate_random_triple(task=task)
 			users = t[1:]
 			for u in users:
 				try:

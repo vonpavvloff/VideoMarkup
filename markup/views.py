@@ -48,20 +48,20 @@ def sample_weighted(seq,weighter,number):
 	
 	return result
 
-@login_required(login_url='/markup/dologin/')
+@login_required
 def task_selection(request):
 	return render(request,'markup/tasks.html',{'tasks':Task.objects.all(),'fixedtasks':FixedTask.objects.all()})
 
 # Create your views here.
-@login_required(login_url='/markup/dologin/')
+@login_required
 def markup(request):
 	user = request.user
 	try:
 		task = Task.objects.get(pk = request.GET.get("task") )
 	except KeyError:
-		return HttpResponseRedirect('/markup/tasks/')
+		return HttpResponseRedirect(reverse('tasks'))
 	except ObjectDoesNotExist:
-		return HttpResponseRedirect('/markup/tasks/')
+		return HttpResponseRedirect(reverse('tasks'))
 
 	totallabels = Label.objects.filter(task=task,user=user,value__in=Label.ISLABELED_VALUES).count()
 
@@ -77,7 +77,7 @@ def markup(request):
 	logger.warn("Failed to get markup objects.")
 	raise ObjectDoesNotExist
 
-@login_required(login_url='/markup/dologin/')
+@login_required
 def label(request):
 	try:
 		task = int(request.POST['task'])
@@ -130,7 +130,7 @@ def label(request):
 		raise e
 
 def dologin(request):
-	return render(request,'markup/login.html',{'next':request.GET.get('next','/tasks/')}) # TODO add a backwards calculator here
+	return render(request,'markup/login.html',{'next':request.GET.get('next',reverse('task_selection'))})
 
 def register(request):
 	username = request.POST['username']
@@ -143,7 +143,7 @@ def register(request):
 	user = authenticate(username=username, password='pass')
 	login(request, user)
 
-	return HttpResponseRedirect(request.POST.get('next','/tasks/'))
+	return HttpResponseRedirect(request.POST.get('next',reverse('tasks')))
 
 def statistics(request):
 	tasks = []
@@ -158,7 +158,7 @@ def statistics(request):
 		task.title = t.title
 		task.size = t.video_set.count()
 		for m in models:
-			task.models.append(Recommendation.objects.filter(task = t, model = m).count())
+			task.models.append(Recommendation.objects.filter(task = t, model = m, current__is404=False, recommended__is404=False).count())
 		tasks.append(task)
 	return render(request,'markup/task_statistics.html',{'tasks':tasks,'models':models})
 

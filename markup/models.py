@@ -8,13 +8,6 @@ class Task(models.Model):
 	def __str__(self):
 		return self.title
 
-class ClassName(object):
-	"""docstring for ClassName"""
-	def __init__(self, arg):
-		super(ClassName, self).__init__()
-		self.arg = arg
-		
-
 class Video(models.Model):
 	url = models.URLField(unique = True,max_length=255)
 	embed = models.TextField(default = "")
@@ -46,6 +39,13 @@ class Label(models.Model):
 	second = models.ForeignKey(Video, related_name="+")
 	value = models.CharField(max_length=1, choices=LABEL_VALUES, default="U")
 	task = models.ForeignKey(Task)
+	ORDER_VALUES = (
+		('L','Left'),
+		('R','Right'),
+		('A','Any'),
+	)
+	ordering = models.CharField(max_length=1, choices=LABEL_VALUES, default='A')
+	
 	def __str__(self):
 		return self.user.username + "\t" + self.current.url + "\t" + self.first.url + "\t" + self.second.url + "\t" + self.value
 

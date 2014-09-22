@@ -28,7 +28,7 @@
   </head>
 
   <body>
-    <form class="form-signin" role="form" action="/register/" method="post">
+    <form class="form-signin" role="form" action="{% url 'register' %}" method="post">
       {% csrf_token %}
       <h2 class="form-signin-heading">Please sign in</h2>
       <input name="username" class="form-control" placeholder="Login" required="" autofocus="">

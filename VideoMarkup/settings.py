@@ -115,3 +115,5 @@ LOGGING = {
         },
     },
 }
+
+LOGIN_URL='/dologin/'

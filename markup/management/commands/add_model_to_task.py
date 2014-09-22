@@ -19,30 +19,22 @@ class Command(BaseCommand):
 		model,created = RecommenderModel.objects.get_or_create(title=options["title"])
 		task,created = Task.objects.get_or_create(title=options["task"])
 
-		def add_recommendations(current_url,others):
+		def add_recommendations(current_url,others,number):
 			logger.info("Adding recommendations for url: " + current_url)
 			if len(others) == 0:
 				logger.info("Found no recommendations")
 				return
-
-			try:
-				current = TaskItem.objects.get(video__url=current_url,task=task)
-			except ObjectDoesNotExist:
-				logger.warn("Found a video: " + current_url + " that is not in task " + task.title)
-				return
-
 			count = 0
+			others.sort(reverse=True,key=lambda x:x[1])
 			for video_url,weight in others:
 				count += 1
-				if count > options["number"]:
+				if count > number:
 					break
-				try:
-					video = add_video(video_url)
-				except ObjectDoesNotExist:
-					logger.info("Could not add video: " + video_url)
-					continue
 				# Create recommendation for the current model
-				add_recommendation(current_url,video_url,weight,model,task)
+				try:
+					add_recommendation(current_url,video_url,weight,model,task)
+				except ObjectDoesNotExist:
+					logger.info("Failed to add recommendation")
 		
 		if options["model"].startswith("mapreduce://"):
 			server,sep,table = options["model"][12:].partition("/")
@@ -56,10 +48,11 @@ class Command(BaseCommand):
 				src=table,
 				server=server,
 				file=["url_keys.tsv","filter_keys.py"],
-				dst="rearrange/click_pool/video/markup/" + model_file)
-			
+				dst="clickadd/video/markup/" + model_file)
 			mapreduce(
-				read="rearrange/click_pool/video/markup/" + model_file,
+				sort="clickadd/video/markup/" + model_file)
+			mapreduce(
+				read="clickadd/video/markup/" + model_file,
 				server=server,
 				stdout=model_file)
 		else:
@@ -74,8 +67,8 @@ class Command(BaseCommand):
 					continue
 				weight = float(weight)
 				if cur_url != current_url:
-					add_recommendations(current_url,others)
+					add_recommendations(current_url,others,options['number'])
 					current_url = cur_url
 					others = []
 				others.append((other_url,weight))
-			add_recommendations(current_url,others)	
+			add_recommendations(current_url,others,options['number'])	

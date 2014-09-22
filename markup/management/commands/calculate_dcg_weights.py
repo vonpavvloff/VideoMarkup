@@ -13,6 +13,7 @@ logger = logging.getLogger(__name__)
 class Command(BaseCommand):
 	option_list = BaseCommand.option_list + (
 		make_option('-t', "--task", dest="task", type="str", help="Task"),
+		make_option("--iterations", dest="iterations", type="int", default=100, help="Iterations"),
 	)
 	def handle(self, *args, **options):
 		task = Task.objects.get(title=options["task"])
@@ -47,7 +48,7 @@ class Command(BaseCommand):
 						out.write(str(second) + "\t" + str(first) + "\n")
 			# Launch matrixnet
 			with open("matrixnet.log","w+") as out:
-				subprocess.call(["./matrixnet","-P"],stdout=out)
+				subprocess.call(["./matrixnet","-P","-i",str(options["iterations"])],stdout=out)
 			# Get the results from matrixnet
 			# Save the DCG recommendations
 			with open("features.txt.matrixnet") as inp:

@@ -30,15 +30,15 @@ class Command(BaseCommand):
 		logger.info('Extracting titles')
 		mapreduce(map="python extract_video_titles.py --media | python filter_keys.py -k video_urls.txt",
 			src="video/waldata/media/prevdata",
-			dst="rearrange/click_pool/video/markup/titles.media",
+			dst="clickadd/video/markup/titles.media",
 			file=["video_urls.txt","filter_keys.py","transform_pool.py","markup/extract_video_titles.py"])
 		mapreduce(map="python extract_video_titles.py --xml | python filter_keys.py -k video_urls.txt",
 			src="video/waldata/xml/prevdata",
-			dst="rearrange/click_pool/video/markup/titles.xml",
+			dst="clickadd/video/markup/titles.xml",
 			file=["video_urls.txt","filter_keys.py","transform_pool.py","markup/extract_video_titles.py"])
-		mapreduce(read='rearrange/click_pool/video/markup/titles.media',
+		mapreduce(read='clickadd/video/markup/titles.media',
 			stdout="titles.media")
-		mapreduce(read='rearrange/click_pool/video/markup/titles.xml',
+		mapreduce(read='clickadd/video/markup/titles.xml',
 			stdout="titles.xml")
 
 		logger.info('Saving titles')

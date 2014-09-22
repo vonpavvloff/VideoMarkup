@@ -11,17 +11,6 @@ import logging
 from random import sample,choice
 logger = logging.getLogger(__name__)
 
-def get_dcg_weight(recommendation):
-	return Recommendation.objects.get(task=recommendation.task,current=recommendation.current,recommended=recommendation.recommended,model__title="DCG").weight
-
-def calc_dcg(weights,positions):
-	if positions <= 0:
-		positions = len(weights)
-	result = 0.0
-	for i in range(min(len(weights),positions)):
-		result += (2.0 ** weights[i])/log(i+2,2)
-	return result
-
 def get_intervals(values,alpha):
 	n = len(values)
 	mean = sum(values) / n
@@ -43,12 +32,17 @@ def get_intervals_bootsrap(values,alpha):
 	bsv.sort()
 	return bsv[index],bsv[-index]
 
+def get_ideal_dcg(n):
+	idcg = 0.0
+	for i in range(n):
+		idcg += 1.0 / (1.0 + i)
+	return idcg
+
 class Command(BaseCommand):
 	option_list = BaseCommand.option_list + (
 		make_option('-t', "--task", dest="task", type="str", help="Task"),
 		make_option('-n', "--ndcg", dest="ndcg", action="store_true", default=False, help="Calculate NDCG"),
 		make_option('-a', "--alpha", dest="alpha", type="float", default=0.99, help="Probability interval"),
-		make_option('-s', "--substract", dest="substract", action="store_true", default=False, help="Calculate delta from the ideal DCG"),
 		make_option('-p', "--positions", dest="positions", type="int", default=0, help="Number of positions to account for during dcg calculation."),
 		make_option('--simulate-production', dest="simulate", action="store_true", default=False, help="Simulate production process, where production model is used in absence of experimental model, and default model is usd to increase recall."),
 		make_option('--bootstrap', dest="bootstrap", action="store_true", default=False, help="Use bootstrapping to calculate confidence intervals")
@@ -61,36 +55,30 @@ class Command(BaseCommand):
 			dcg_values = []
 			for cv in current_videos(task):
 				results = []
+
+				model_to_use = rm
 				if options["simulate"]:
-					# Take the current model
-					for rec in Recommendation.objects.filter(current=cv,model=rm,task=task,recommended__is404=False).order_by("-weight")[:3]:
-						results.append(get_dcg_weight(rec))
-					if len(results) == 0:
-						# Use production model, if there is no current model
-						for rec in Recommendation.objects.filter(current=cv,model__title="production",task=task,recommended__is404=False).order_by("-weight")[:3]:
-							results.append(get_dcg_weight(rec))
-					# Append default model
-					for rec in Recommendation.objects.filter(current=cv,model__title="default",task=task,recommended__is404=False).order_by("-weight")[:options["positions"]]:
-						if len(results) >= options["positions"]:
-							break
-						results.append(get_dcg_weight(rec))
+					if not Recommendation.objects.filter(current=rec.current,model=rm).exists():
+						model_to_use = RecommenderModel.objects.get_or_create(title="production_ideal")
+				addedvals = 0
+				gainssum = 0.0
+				discount = 1
+				for rec in Recommendation.objects.filter(current=cv,model=dcg,task=task,recommended__is404=False).order_by("-weight"):
+					try:
+						curmodelrec = Recommendation.objects.get(current=rec.current,recommended=rec.recommended,model=model_to_use)
+						if Recommendation.objects.filter(current=rec.current,model=model_to_use,weight__gt=curmodelrec.weight).count() < options['positions']:
+							gainssum += 1.0 / discount
+							addedvals += 1
+					except ObjectDoesNotExist:
+						pass
+					if addedvals >= options["positions"]:
+						break
+					discount += 1
+
+				if options["ndcg"]
+					dcg_value = gainssum / get_ideal_dcg(options["positions"])
 				else:
-					# Just get items from the current model
-					for rec in Recommendation.objects.filter(current=cv,model=rm,task=task,recommended__is404=False).order_by("-weight")[:options["positions"]]:
-						results.append(get_dcg_weight(rec))
-
-				# Calculate dcg for the current video
-				dcg_value = calc_dcg(results,options["positions"])
-
-				# Select weights of unknown videos
-				if options["ndcg"] or options["substract"]:
-					ideal_results = []
-					for rec in Recommendation.objects.filter(current=cv,model=dcg,task=task,recommended__is404=False).order_by("-weight"):
-						ideal_results.append(rec.weight)
-					if options["ndcg"]:
-						dcg_value /= calc_dcg(ideal_results,options["positions"])
-					else:
-						dcg_value = calc_dcg(ideal_results,options["positions"]) - dcg_value
+					dcg_value = gainssum
 
 				dcg_values.append(dcg_value)
 			# Calculate mean and stddev

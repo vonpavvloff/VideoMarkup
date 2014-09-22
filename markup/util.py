@@ -6,10 +6,44 @@ from urllib import quote,urlopen
 import subprocess
 import logging
 from xml.dom.minidom import parse
-from random import shuffle,choice,sample
+from random import shuffle,choice,sample,uniform
 logger = logging.getLogger(__name__)
 
 skipMapReduceCommands = False
+
+
+def choice_weighted(seq,weighter):
+	vals = []
+	sum = 0.0
+	for s in seq:
+		weight = weighter(s)
+		assert weight > 0
+		sum += weight
+		vals.append((s,weight))
+	rnd = uniform(0,sum)
+	for s,w in vals:
+		rnd -= w
+		if rnd <= 0:
+			return s
+	raise IndexError()
+
+def sample_weighted(seq,weighter,number):
+	vals = []
+	sum = 0.0
+	for s in seq:
+		weight = weighter(s)
+		assert weight > 0
+		sum += weight
+		vals.append((s,weight))
+
+	result = []
+	for i in range(number):
+		val = choice_weighted(vals, lambda x: x[1])
+		result.append(val[0])
+		vals.remove(val)
+	
+	return result
+
 
 def get_embed(video_url):
 	conn = HTTPConnection("video.yandex.net")
@@ -73,18 +107,17 @@ def add_recommendation(current_url,recommended_url,weight,model,task):
 		model,created = RecommenderModel.objects.get_or_create(title=model)
 	if not isinstance(task,Task):
 		task,created = Task.objects.get_or_create(title=task)
-	video = add_video(recommended_url)
 	try:
 		current = add_video(current_url)
 		TaskItem.objects.get(task=task,video=current)
 	except ObjectDoesNotExist:
 		logger.warn("Adding recommendation to a video that is not in task, or could not get the current video " + current_url + " " + recommended_url)
-		video.delete()
 		raise
+	video = add_video(recommended_url)
 	rec, created = Recommendation.objects.get_or_create(current = current, recommended = video, model = model, task = task)
 	rec.weight = weight
 	rec.save()
-	logger.info("Added recommendation: " + current_url + " " + recommended_url + " " + str(model) + " " + str(task))
+	logger.info("Added recommendation: " + current_url + " " + recommended_url + " " + str(weight) + " " + str(model) + " " + str(task))
 
 def mapreduce(**params):
 	if skipMapReduceCommands:
@@ -147,6 +180,25 @@ def get_video_title_from_search(url):
 	finally:
 		inp.close()
 
+class WinsWeighter:
+	def __init__(self,task,current):
+		self.task = task
+		self.current = current
+	def __call__(self,video):
+		wins =  Label.objects.filter(task=self.task,current = self.current,first=video, value='F').count()
+		wins += Label.objects.filter(task=self.task,current = self.current,second=video,value='S').count()
+		return wins + 1
+
+class InverseLabelsWeighter(object):
+	def __init__(self,task,current):
+		self.task = task
+		self.current = current
+	def __call__(self,video):
+		labels =  Label.objects.filter(task=self.task,current = self.current,first=video).count()
+		labels += Label.objects.filter(task=self.task,current = self.current,second=video).count()
+		return 1.0 / (labels + 1)
+		
+
 def generate_random_triple(**params):
 	task = params["task"]
 	attempts = 10
@@ -161,6 +213,10 @@ def generate_random_triple(**params):
 		recVideos.update(map(lambda x:x.recommended,recs))
 		if len(recVideos) < 2:
 			continue
+		recVideosList = []
+		recVideosList.extend(recVideos)
+		p1 = choice_weighted(recVideosList,InverseLabelsWeighter(task,currentVideo))
+		p2 = choice_weighted(recVideosList,WinsWeighter(task,currentVideo))
 		pair = sample(recVideos,2)
 		if currentVideo in pair:
 			continue

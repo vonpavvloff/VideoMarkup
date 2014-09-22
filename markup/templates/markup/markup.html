@@ -94,7 +94,7 @@ function protected_post (url,vals,callback) {
 function label(value) {
   var data = "current=" + current + "&first=" + first + "&second=" + second + "&value=" + value + "&task=" + task;
   console.log(data);
-  protected_post("label/",data, function (data) {
+  protected_post("{% url 'label' %}",data, function (data) {
     document.location.reload(true);
     $(document).scrollTop(0);
   });

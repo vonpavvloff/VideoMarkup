@@ -49,11 +49,18 @@ class Command(BaseCommand):
 				logger.info("Generated duplicate triple, retry...")
 				current,first,second = generate_random_triple(task=task)
 			users = t[1:]
+			ordcount = 0
 			for u in users:
 				try:
 					user = User.objects.get(username=u)
 				except ObjectDoesNotExist:
 					user = User.objects.create_user(u,u + "@yandex-team.ru","pass")
 					user.save()
-				l,created = Label.objects.get_or_create(current=current,first=first,second=second,task=task,user=user)
+
+				if ordcount % 2 == 0:
+					order = 'L'
+				else:
+					order = 'R'
+				l,created = Label.objects.get_or_create(current=current,first=first,second=second,task=task,user=user,ordering=order)
 				FixedTaskItem.objects.get_or_create(task=fixedtask,label=l)
+				ordcount += 1

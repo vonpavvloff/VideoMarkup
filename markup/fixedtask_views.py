@@ -90,15 +90,15 @@ def show_labels(request):
 			str(fti.label.value)]) + "\n")
 	return HttpResponse(result.getvalue(),content_type="text/plain")
 
-@login_required(login_url='/markup/dologin/')
+@login_required
 def markup_fixed(request):
 	user = request.user
 	try:
 		fixedtask = FixedTask.objects.get(pk = request.GET.get("fixedtask") )
 	except KeyError:
-		return HttpResponseRedirect('/markup/tasks/')
+		return HttpResponseRedirect(reverse('tasks'))
 	except ObjectDoesNotExist:
-		return HttpResponseRedirect('/markup/tasks/')
+		return HttpResponseRedirect(reverse('tasks'))
 
 	unmarked_labels = []
 	unmarked_labels.extend(fixedtask.label.filter(user=user,value="U"))
@@ -106,9 +106,13 @@ def markup_fixed(request):
 
 		label = choice(unmarked_labels)
 
-		pair = [label.first,label.second]
-		shuffle(pair)
-
+		
+		if label.ordering == 'R':
+			pair = [label.first,label.second]
+		elif label.ordering == 'L':
+			pair = [label.second,label.first]
+		else:
+			shuffle(pair)
 		logger.warn("Getting recommendations from fixed task.")
 		return render(request,'markup/markup.html',{'current':label.current,
 			'first':pair[0],

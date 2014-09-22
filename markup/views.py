@@ -143,7 +143,7 @@ def register(request):
 	user = authenticate(username=username, password='pass')
 	login(request, user)
 
-	return HttpResponseRedirect(request.POST.get('next',reverse('tasks')))
+	return HttpResponseRedirect(request.POST.get('next',reverse('task_selection')))
 
 def statistics(request):
 	tasks = []

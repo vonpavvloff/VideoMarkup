@@ -1,5 +1,6 @@
 from markup.models import Task, Recommendation,Video,TaskItem,RecommenderModel,Label
 from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import render
 from httplib import HTTPConnection
 from urlparse import urlparse
 from urllib import quote,urlopen
@@ -46,6 +47,9 @@ def sample_weighted(seq,weighter,number):
 
 
 def get_embed(video_url):
+	if video_url.startswith('http://www.youtube.com/watch?v='):
+		yid = video_url.partition('=')[2]
+		return 'http://www.youtube.com/embed/%(yid)s?wmode=opaque&fs=1&theme=dark&autoplay=0&' % {'yid':yid}
 	conn = HTTPConnection("video.yandex.net")
 	get_embed_url = "/embed.xml?params=%26embed%3Dy&width=612.8&height=344.7&link=" + quote(video_url)
 	logger.info("Getting embed: " + get_embed_url)
@@ -82,7 +86,7 @@ def current_videos_with_recommendations(task):
 		if (video.recommendations.count() > 1) and not video.is404:
 			yield ti.video
 
-def add_video(url):
+def add_video(url, title = None):
 	if not url.startswith("http://") and not url.startswith("https://"):
 		url = "http://" + url
 	try:
@@ -94,12 +98,14 @@ def add_video(url):
 		embed = get_embed(url)
 		if embed != None:
 			video.embed = embed
-			video.save()
 		else:
 			video.delete()
 			logger.info('Failed to add video ' + url)
 			raise ObjectDoesNotExist
 	logger.info("Added video " + url)
+	if title is not None:
+		video.title = title
+	video.save()
 	return video
 
 def add_recommendation(current_url,recommended_url,weight,model,task):
@@ -181,22 +187,24 @@ def get_video_title_from_search(url):
 		inp.close()
 
 class WinsWeighter:
-	def __init__(self,task,current):
+	def __init__(self,task,current,base_wins = 1):
 		self.task = task
 		self.current = current
+		self.base_wins = base_wins
 	def __call__(self,video):
 		wins =  Label.objects.filter(task=self.task,current = self.current,first=video, value='F').count()
 		wins += Label.objects.filter(task=self.task,current = self.current,second=video,value='S').count()
-		return wins + 1
+		return wins + self.base_wins
 
 class InverseLabelsWeighter(object):
-	def __init__(self,task,current):
+	def __init__(self,task,current,base_labels = 1):
 		self.task = task
 		self.current = current
+		self.base_labels = base_labels
 	def __call__(self,video):
 		labels =  Label.objects.filter(task=self.task,current = self.current,first=video).count()
 		labels += Label.objects.filter(task=self.task,current = self.current,second=video).count()
-		return 1.0 / (labels + 1)
+		return float(self.base_labels) / (labels + self.base_labels)
 		
 
 def generate_random_triple(**params):
@@ -217,7 +225,7 @@ def generate_random_triple(**params):
 		recVideosList.extend(recVideos)
 		p1 = choice_weighted(recVideosList,InverseLabelsWeighter(task,currentVideo))
 		p2 = choice_weighted(recVideosList,WinsWeighter(task,currentVideo))
-		pair = sample(recVideos,2)
+		pair = [p1,p2]
 		if currentVideo in pair:
 			continue
 		if pair[0].url == pair[1].url:
@@ -234,3 +242,19 @@ def generate_random_triple(**params):
 				continue	
 		return currentVideo,pair[0],pair[1]
 	raise ObjectDoesNotExist
+
+def render_label(label,request,message):
+	if label.ordering == 'R':
+		pair = [label.first,label.second]
+	elif label.ordering == 'L':
+		pair = [label.second,label.first]
+	else:
+		pair = [label.first,label.second]
+		shuffle(pair)
+	return render(request,'markup/markup.html',{
+		'current':label.current,
+		'first':pair[0],
+		'second':pair[1],
+		'path':request.path,
+		'task':label.task,
+		'message': message})

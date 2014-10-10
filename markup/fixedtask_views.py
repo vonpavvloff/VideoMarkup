@@ -6,7 +6,7 @@ from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.shortcuts import render,get_object_or_404
 from django.core.urlresolvers import reverse
 from markup.models import Video,Label,RecommenderModel,Recommendation,Task,FixedTask,FixedTaskItem
-from markup.util import current_videos_with_recommendations
+from markup.util import current_videos_with_recommendations, render_label
 from django.core.exceptions import PermissionDenied
 from random import choice, uniform, shuffle, sample
 from django.contrib.auth.models import User
@@ -106,20 +106,7 @@ def markup_fixed(request):
 
 		label = choice(unmarked_labels)
 
-		
-		if label.ordering == 'R':
-			pair = [label.first,label.second]
-		elif label.ordering == 'L':
-			pair = [label.second,label.first]
-		else:
-			shuffle(pair)
-		logger.warn("Getting recommendations from fixed task.")
-		return render(request,'markup/markup.html',{'current':label.current,
-			'first':pair[0],
-			'second':pair[1],
-			'path':request.path,
-			'task':label.task,
-			'message':str(len(unmarked_labels)) + " pairs remaining."})
+		return render_label(label,request,str(len(unmarked_labels)) + " pairs remaining.")
 		
 	else:
 		return render(request,'markup/success.html',{})

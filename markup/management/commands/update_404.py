@@ -30,4 +30,8 @@ class Command(BaseCommand):
 			except Exception, e:
 				logger.exception("Failed to find video " + v.url + " in search, marking it as 404")
 				v.is404 = True
-				v.save()
+				try:
+					v.save()
+				except Exception, e:
+					logger.exception("Failed to save video " + v.url)
+					continue

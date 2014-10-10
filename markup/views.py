@@ -5,8 +5,8 @@ from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.shortcuts import render,get_object_or_404
 from django.core.urlresolvers import reverse
-from markup.models import Video,Label,RecommenderModel,Recommendation,Task,FixedTask,FixedTaskItem
-from markup.util import current_videos_with_recommendations,generate_random_triple
+from markup.models import Video,Label,RecommenderModel,Recommendation,Task,FixedTask,FixedTaskItem,DynamicTask,DynamicAssignment
+from markup.util import current_videos_with_recommendations,generate_random_triple,render_label
 from django.core.exceptions import PermissionDenied
 from random import choice, uniform, shuffle, sample
 from django.contrib.auth.models import User
@@ -50,7 +50,7 @@ def sample_weighted(seq,weighter,number):
 
 @login_required
 def task_selection(request):
-	return render(request,'markup/tasks.html',{'tasks':Task.objects.all(),'fixedtasks':FixedTask.objects.all()})
+	return render(request,'markup/tasks.html',{'tasks':Task.objects.all(),'fixedtasks':FixedTask.objects.all(),'dynamictasks':DynamicTask.objects.all()})
 
 # Create your views here.
 @login_required
@@ -66,16 +66,51 @@ def markup(request):
 	totallabels = Label.objects.filter(task=task,user=user,value__in=Label.ISLABELED_VALUES).count()
 
 	current,first,second = generate_random_triple(task=task,user=user)
-	pair = [first,second]
-	shuffle(pair)
-	return render(request,'markup/markup.html',{'current':current,
-		'first':pair[0],
-		'second':pair[1],
-		'path':request.path,
-		'task':task,
-		'message': "You have labeled " + str(totallabels) + " pairs."})
-	logger.warn("Failed to get markup objects.")
-	raise ObjectDoesNotExist
+	label,created = Label.objects.get_or_create(current = current, first = first, second = second, user = user, task = task)
+	return render_label(label,request,"You have labeled " + str(totallabels) + " pairs.")
+
+@login_required
+def dynamic_markup(request):
+	user = request.user
+	dynamictask = DynamicTask.objects.get(pk = request.GET.get("task") )
+
+	task = dynamictask.task
+	try:
+		assignment = DynamicAssignment.objects.get(user=user,dynamictask=dynamictask)
+	except ObjectDoesNotExist:
+		return render(request,'markup/success.html',{})
+	totallabels = Label.objects.filter(task=task,user=user,value__in=Label.ISLABELED_VALUES).count()
+	if totallabels >= assignment.size:
+		return render(request,'markup/success.html',{})
+	# Get unknown labels
+	label = Label.objects.filter(task=task,user=user,value='U').first()
+	if label is None:
+		# No unknown labels, create a label and give it to the assessor with the lowest number of labels
+		created = False
+		attempts = 10
+		while not created:
+			current,first,second = generate_random_triple(task=task,user=user)
+			label, created = Label.objects.get_or_create(current = current, first = first, second = second, user = user, task = task)
+			attempts -= 1
+			if attempts <= 0:
+				raise ObjectDoesNotExist
+		label.ordering = 'L'
+		label.save()
+		all_users = [(u,Label.objects.filter(user=u,task=task,value__in=Label.ISLABELED_VALUES).count()) for u in User.objects.filter(dynamic_assignment__dynamictask=dynamictask)]
+		all_users.sort(key=lambda u: u[1])
+		created = False
+		for other_user,count in all_users:
+			if other_user == user:
+				continue
+			other_label, created = Label.objects.get_or_create(current = current, first = first, second = second, user = other_user, task = task)
+			if not created:
+				continue
+			other_label.ordering = 'R'
+			other_label.save()
+			break
+		if not created:
+			raise ObjectDoesNotExist
+	return render_label(label,request,"You have labeled %(current_number)s pairs out of total %(assignment_size)s." %{'current_number':totallabels,'assignment_size':assignment.size})
 
 @login_required
 def label(request):
@@ -119,6 +154,13 @@ def label(request):
 			first.save()
 		elif value == 's':
 			second.is404 = True
+			second.save()
+		else:
+			current.is404 = False
+			current.save()
+			first.is404 = False
+			first.save()
+			second.is404 = False
 			second.save()
 
 

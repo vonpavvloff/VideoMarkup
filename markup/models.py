@@ -47,7 +47,7 @@ class Label(models.Model):
 	ordering = models.CharField(max_length=1, choices=LABEL_VALUES, default='A')
 	
 	def __str__(self):
-		return self.user.username + "\t" + self.current.url + "\t" + self.first.url + "\t" + self.second.url + "\t" + self.value
+		return self.user.username + "\t" + self.current.url + "\t" + self.first.url + "\t" + self.second.url + "\t" + self.ordering + "\t" + self.value
 
 class FixedTask(models.Model):
 	title = models.CharField(max_length = 300)
@@ -56,6 +56,19 @@ class FixedTask(models.Model):
 class FixedTaskItem(models.Model):
 	task = models.ForeignKey(FixedTask)
 	label = models.ForeignKey(Label)
+
+class DynamicTask(models.Model):
+	title = models.CharField(max_length = 300)
+	task = models.ForeignKey(Task)
+	def __str__(self):
+		return self.title
+
+class DynamicAssignment(models.Model):
+	dynamictask = models.ForeignKey(DynamicTask)
+	user = models.ForeignKey(User, related_name="dynamic_assignments", related_query_name="dynamic_assignment")
+	size = models.IntegerField()
+	def __str__(self):
+		return self.dynamictask.title + " " + self.user.username + " " + str(self.size)
 
 class RecommenderModel(models.Model):
 	title = models.CharField(max_length = 300)

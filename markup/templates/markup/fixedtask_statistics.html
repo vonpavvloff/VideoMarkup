@@ -22,7 +22,7 @@
         </td>
         {% for second_user in first_user.second_users %}
         <td>
-          <a href="{% url 'conflicts' %}?user1={{ first_user.username }}&user2={{ second_user.username }}&fixedtask={{ fixedtask.pk }}">{{ second_user.conflicts }}/{{ second_user.total }}</a>
+          <a href="{% url 'show_conflicts' %}?user1={{ first_user.username }}&user2={{ second_user.username }}&fixedtask={{ fixedtask.pk }}">{{ second_user.conflicts }}/{{ second_user.total }}</a>
         </td>
         {% endfor %}
       </tr>

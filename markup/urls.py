@@ -7,6 +7,7 @@ urlpatterns = patterns('',
 	url(r'^register/$','markup.views.register', name='register'),
 
 	url(r'^markup$','markup.views.markup', name='markup'),
+	url(r'^dynamic$','markup.views.dynamic_markup', name='dynamic_markup'),
 	url(r'^tasks/$','markup.views.task_selection', name='task_selection'),
 	url(r'^label/$','markup.views.label', name='label'),
 	url(r'^statistics/$','markup.views.statistics', name='statistics'),

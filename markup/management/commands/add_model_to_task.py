@@ -7,13 +7,16 @@ from urlparse import urlparse
 from markup.util import get_embed,mapreduce,current_videos,add_recommendation,add_video
 import logging
 logger = logging.getLogger(__name__)
+import json
+from itertools import izip
 
 class Command(BaseCommand):
 	option_list = BaseCommand.option_list + (
 		make_option("--model", dest="model", type="str", help="Source of the model"),
 		make_option("--task", dest="task", type="str", help="Task identifier"),
 		make_option('--title', dest="title", type="str", help="Model title"),
-		make_option('-n', "--number", dest="number", type="int", default=4, help="Number of recommendations to store")
+		make_option('--json', dest="json", action="store_true", default=False, help="The input is in json format."),
+		make_option('-n', "--number", dest="number", type="int", default=5, help="Number of recommendations to store"),
 	)
 	def handle(self, *args, **options):
 		model,created = RecommenderModel.objects.get_or_create(title=options["title"])
@@ -58,11 +61,23 @@ class Command(BaseCommand):
 		else:
 			model_file = options["model"]
 
+
+		def get_items(input):
+			for l in input:
+				if options["json"]:
+					cur_url, tab, data = l.partition('\t')
+					urls = json.loads(data)
+					for u,w in izip(urls,range(len(urls),0,-1)):
+						yield cur_url,u,float(w)
+				else:
+					cur_url,other_url,weight = l[:-1].split("\t")[0:3]
+					yield cur_url,other_url,float(weight)
+			pass
+
 		with open(model_file) as inp:
 			current_url = ""
 			others = []
-			for l in inp:
-				cur_url,other_url,weight = l[:-1].split("\t")[0:3]
+			for cur_url,other_url,weight in get_items(inp):
 				if cur_url == other_url:
 					continue
 				weight = float(weight)
